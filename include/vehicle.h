@@ -155,10 +155,9 @@ namespace scut_racing
     };
 
     /**
-     * @brief 货车类
+     * @brief 货车类，示范使用
      * 
      */
-
     class Truck
     {
     public:
@@ -187,9 +186,44 @@ namespace scut_racing
         float rear_wb_;     // 后轮与重心距离
         float wind_square_; // 迎风面积
         Tire tire_;         // 轮胎
+        float price_;       // 价格
+        // 汽车位置信息
+        CarState state_;
+    };
 
-        float price_; // 价格
+    /**
+     * @brief 客车类，示范使用
+     * 
+     */
+    class Coach
+    {
+    public:
+        Coach(string filename); // 从文件中加载参数
+        // getter
+        inline const CarState getPosition();
+        // public method
+        void horn();                    // 鸣笛
+        void step(KeyBoardControl cmd); // 移动一个控制步
+        void getInTheCar(string name);  // 乘客上车
+    private:
+        int passengers_;            // 载客量
+        int limit_passengers_nums_; // 允许载客量
+        // 汽车自身信息
+        string producer_; // 生产者
+        string color_;    // 颜色
 
+        // 汽车内部信息
+        float car_long_;    // 长
+        float car_wide_;    // 宽
+        float car_height_;  // 高
+        float hg_;          // 重心高度
+        float wheel_base_;  // 轴距
+        float track_b_;     // 轮距
+        float front_wb_;    // 前轮与重心距离
+        float rear_wb_;     // 后轮与重心距离
+        float wind_square_; // 迎风面积
+        Tire tire_;         // 轮胎
+        float price_;       // 价格
         // 汽车位置信息
         CarState state_;
     };
